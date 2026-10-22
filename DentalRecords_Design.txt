@@ -1,0 +1,83 @@
+ Florida Dental Records
+ Program Design Algorithm
+
+Course: CSC 120  
+Project: Dental Records
+
+    1. Main Program — `main()`
+
+1. Start the program and display the welcome message.
+2. Create a three-dimensional character array to store teeth.
+3. Create an array to store family members' names.
+4. Ask the user how many family members there are.
+5. If the number is outside 1–6, display an error and ask again.
+6. For each family member, using `index`:
+   - Ask for their name.
+   - Ask for their upper teeth.
+   - Check that the tooth string contains 1–8 characters and only I, B, or M.
+   - If invalid, ask again.
+   - Repeat for their lower teeth.
+   - Convert tooth letters to uppercase and store them in the three-dimensional array.
+7. Display the menu with P, E, R, and X.
+8. Read the user's menu choice and convert it to uppercase.
+9. Perform the selected operation:
+   - P: Call `printRecords()`.
+   - E: Call `extractTooth()`.
+   - R: Call `calculateRoots()`.
+   - X: Exit the program.
+10. Repeat the menu until X is selected.
+11. Close the input scanner and end the program.
+
+   2. Print Records — `printRecords()`
+
+1. Receive the names array, teeth array, and family size.
+2. For each family member, using `index`:
+   - Display the family member's name.
+   - Process upper and lower teeth separately.
+   - For each stored tooth, using `toothIndex`:
+     - Check whether the array position contains a tooth.
+     - Display its position number and type.
+3. Return to the main menu.
+
+   3. Extract Tooth — `extractTooth()`
+
+1. Ask the user to enter a family member's name.
+2. Search the names array for the entered name, ignoring uppercase and lowercase differences.
+3. If the name is invalid, ask again.
+4. Ask whether the tooth belongs to the upper or lower layer.
+5. Validate the selected layer.
+6. Count the stored tooth positions in that layer.
+7. Check whether at least one tooth is not missing.
+8. If all teeth are missing, display a message and return to the menu.
+9. Ask for the tooth number.
+10. Check that the number is within the valid range and that the tooth is not already missing.
+11. If invalid, ask again.
+12. Replace the selected tooth with M.
+13. Display a confirmation message and return to the main menu.
+
+  4. Calculate Root Canal Indices — `calculateRoots()`
+
+1. Initialize counters for incisors, bicuspids, and missing teeth to zero.
+2. Loop through all family members, upper and lower layers, and tooth positions.
+3. Count each I, B, and M character.
+4. Use the totals in the equation:
+
+   **Ix² + Bx − M = 0**
+
+5. If the number of incisors is greater than zero:
+   - Calculate the discriminant: B² + 4IM.
+   - Calculate the first root: (−B + √discriminant) / (2I).
+   - Calculate the second root: (−B − √discriminant) / (2I).
+   - Display both roots to two decimal places.
+6. If there are no incisors but there are bicuspids:
+   - Calculate the single root M / B.
+   - Display the result to two decimal places.
+7. If there are no incisors or bicuspids, display that no root canal indices are available.
+8. Return to the main menu.
+
+  5. End Program
+
+1. When the user enters X, display the exit message.
+2. Close the scanner.
+3. Terminate the program.
+
